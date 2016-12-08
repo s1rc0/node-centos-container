@@ -6,6 +6,8 @@ RUN groupadd -r node && useradd -r -g node node
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 4.2.2
 
+# Install midlleware
+RUN yum install -y which
 
 # Install Node
 RUN curl -SLO https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
