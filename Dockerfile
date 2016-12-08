@@ -9,6 +9,9 @@ ENV NODE_VERSION 6.9.2
 # Install midlleware
 RUN yum install -y openssh-clients git wget bzip2 freetype fontconfig
 
+# Superfix for FE tests :)
+RUN sudo unlink /etc/localtime && sudo ln -s /usr/share/zoneinfo/Etc/GMT+2 /etc/localtime
+
 # Install Node
 RUN curl -SLO https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
 	&& tar -xvf node-v${NODE_VERSION}-linux-x64.tar.gz -C /usr/local --strip-components=1 \
